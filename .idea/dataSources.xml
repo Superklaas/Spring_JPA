@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="MariaDB - StudentDB@noelvaes.eu" uuid="1e3d966b-0146-4cc9-bc56-a5f60f668255">
+      <driver-ref>mariadb</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mariadb://noelvaes.eu/StudentDB</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="beersdb@localhost" uuid="bfdd47ee-90c7-42ec-a29b-1e9eba83fd7c">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/beersdb</jdbc-url>
+    </data-source>
+  </component>
+</project>
