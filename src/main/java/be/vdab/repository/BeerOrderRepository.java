@@ -1,6 +1,7 @@
 package be.vdab.repository;
 
 import be.vdab.domain.BeerOrder;
+import be.vdab.domain.BeerOrderItem;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -23,6 +24,9 @@ public class BeerOrderRepository {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
         em.persist(order);
+//        for (BeerOrderItem item : order.getItems()) {
+//            em.persist(item);
+//        }
         tx.commit();
         em.close();
         return order.getId();

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDataSourceStorage">
+    <option name="dataSources">
+      <list>
+        <State>
+          <option name="id" value="c2e2277d-4836-44a8-96a3-86b0c4a8c89f" />
+          <option name="name" value="HSQL BeersTestDB" />
+          <option name="urls">
+            <array>
+              <option value="file://$PROJECT_DIR$/src/test/resources/schema.sql" />
+              <option value="file://$PROJECT_DIR$/src/test/resources/data.sql" />
+            </array>
+          </option>
+        </State>
+      </list>
+    </option>
+  </component>
+</project>

@@ -36,48 +36,63 @@ public class Beer {
         return name;
     }
 
-    public void setName(String name) {
+    public Beer setName(String name) {
         this.name = name;
+        return this;
     }
 
     public float getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public Beer setPrice(float price) {
         this.price = price;
+        return this;
     }
 
     public int getStock() {
         return stock;
     }
 
-    public void setStock(int stock) {
+    public Beer setStock(int stock) {
         this.stock = stock;
+        return this;
     }
 
     public float getAlcohol() {
         return alcohol;
     }
 
-    public void setAlcohol(float alcohol) {
+    public Beer setAlcohol(float alcohol) {
         this.alcohol = alcohol;
+        return this;
+    }
+
+    public int getVersion() {
+        return version;
+    }
+
+    public Beer setVersion(int version) {
+        this.version = version;
+        return this;
     }
 
     public Brewer getBrewer() {
         return brewer;
     }
 
-    public void setBrewer(Brewer brewer) {
+    public Beer setBrewer(Brewer brewer) {
         this.brewer = brewer;
+        return this;
     }
 
     public Category getCategory() {
         return category;
     }
 
-    public void setCategory(Category category) {
+    public Beer setCategory(Category category) {
         this.category = category;
+        return this;
     }
 
     @Override
