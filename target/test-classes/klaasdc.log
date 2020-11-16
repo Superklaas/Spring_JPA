@@ -1,0 +1,26 @@
+/*C1*/SET SCHEMA SYSTEM_LOBS
+INSERT INTO BLOCKS VALUES(0,2147483647,0)
+COMMIT
+/*C2*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C3*/SET SCHEMA PUBLIC
+set schema PUBLIC
+CREATE TABLE IF NOT EXISTS Beers (\u000a                                     Id INTEGER IDENTITY NOT NULL,\u000a                                     Name VARCHAR (100),\u000a                                     BrewerId INTEGER,\u000a                                     CategoryId INTEGER,\u000a                                     Price FLOAT,\u000a                                     Stock INTEGER,\u000a                                     Alcohol FLOAT,\u000a                                     Version INTEGER,\u000a                                     Image LONGVARBINARY,\u000a                                     PRIMARY KEY (Id)\u000a)
+CREATE TABLE IF NOT EXISTS Brewers (\u000a                                       Id INTEGER IDENTITY NOT NULL,\u000a                                       Name VARCHAR (50),\u000a                                       Address VARCHAR (50),\u000a                                       ZipCode VARCHAR (6),\u000a                                       City VARCHAR (50),\u000a                                       Turnover INTEGER,\u000a                                       PRIMARY KEY (Id)\u000a)
+CREATE TABLE IF NOT EXISTS Categories (\u000a                                          Id INTEGER IDENTITY NOT NULL,\u000a                                          Category VARCHAR (50),\u000a                                          PRIMARY KEY (Id)\u000a)
+CREATE TABLE IF NOT EXISTS BeerOrders (\u000a                                          Id INTEGER IDENTITY NOT NULL,\u000a                                          Name VARCHAR (100),\u000a                                          PRIMARY KEY (Id)\u000a)
+CREATE TABLE IF NOT EXISTS BeerOrderItems (\u000a                                              Id INTEGER IDENTITY NOT NULL,\u000a                                              Number INTEGER,\u000a                                              BeerId INTEGER,\u000a                                              BeerOrderId INTEGER,\u000a                                              PRIMARY KEY (Id)\u000a)
+/*C4*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C5*/SET SCHEMA PUBLIC
+set schema PUBLIC
+INSERT INTO BREWERS VALUES(1,'TestBrewer','TestStreet','1000','TestCity',10000)
+COMMIT
+INSERT INTO CATEGORIES VALUES(1,'TestCategory')
+COMMIT
+INSERT INTO BEERS VALUES(1,'TestBeer',1,1,2.0E0,100,5.0E0,0,NULL)
+COMMIT
+INSERT INTO BEERORDERS VALUES(1,'JoeBiden')
+COMMIT
+INSERT INTO BEERORDERITEMS VALUES(1,5,1,1)
+COMMIT
