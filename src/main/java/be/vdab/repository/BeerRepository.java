@@ -2,42 +2,32 @@ package be.vdab.repository;
 
 import be.vdab.domain.Beer;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.PersistenceUnit;
+import javax.persistence.*;
 import java.util.List;
 
 @Repository
 public class BeerRepository {
 
-    private EntityManagerFactory emf;
+    private EntityManager em;
 
-    @PersistenceUnit
-    public void setEmf(EntityManagerFactory emf) {
-        this.emf = emf;
+    @PersistenceContext
+    public void setEntityManager(EntityManager em) {
+        this.em = em;
     }
 
     public Beer getBeerById(int id) {
-        EntityManager em = emf.createEntityManager();
-        Beer beer = em.find(Beer.class,id);
-        em.close();
-        return beer;
+        return em.find(Beer.class,id);
     }
 
     public List<Beer> getBeerByAlcohol(float alcohol) {
-        EntityManager em = emf.createEntityManager();
-        List<Beer> beerList =
-                em.createQuery("select b from Beer b where b.alcohol = " + alcohol,Beer.class).getResultList();
-        em.close();
-        return beerList;
+        return em.createQuery("select b from Beer b where b.alcohol = " + alcohol,Beer.class).getResultList();
     }
 
+    @Transactional
     public void updateBeer(Beer beer) {
-        EntityManager em = emf.createEntityManager();
-        EntityTransaction tx = em.getTransaction();
-        tx.begin();
         Beer dbBeer = em.find(Beer.class,beer.getId());
         dbBeer.setName(beer.getName());
         dbBeer.setPrice(beer.getPrice());
@@ -45,9 +35,8 @@ public class BeerRepository {
         dbBeer.setAlcohol(beer.getAlcohol());
         dbBeer.setBrewer(beer.getBrewer());
         dbBeer.setCategory(beer.getCategory());
-        tx.commit();
-        em.close();
-        System.out.println("beer updated");
+        System.out.println("beer " + dbBeer.getName() + " updated");
+        System.out.println("new stock: " + dbBeer.getStock());
     }
 
 }

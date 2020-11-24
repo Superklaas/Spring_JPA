@@ -14,7 +14,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import java.util.List;
 
 @ExtendWith(SpringExtension.class)
-@SpringBootTest(classes = BeerApp.class)
+@SpringBootTest(classes = DataAccessApp.class)
 public class BeerRepositoryTest {
 
     @Autowired

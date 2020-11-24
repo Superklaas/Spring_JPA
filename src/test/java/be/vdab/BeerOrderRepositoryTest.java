@@ -16,7 +16,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import java.util.Arrays;
 
 @ExtendWith(SpringExtension.class)
-@SpringBootTest(classes = BeerApp.class)
+@SpringBootTest(classes = DataAccessApp.class)
 public class BeerOrderRepositoryTest {
 
     @Autowired
@@ -25,21 +25,21 @@ public class BeerOrderRepositoryTest {
     BeerOrderRepository beerOrderRepository;
 
     Beer testBeer;
-    BeerOrder testOrder;
     BeerOrderItem testItem;
+    BeerOrder testOrder;
 
     @BeforeEach
     void before() {
         testBeer = beerRepository.getBeerById(1);
-        testOrder = new BeerOrder().setName("Klaas");
-        testItem = new BeerOrderItem().setBeer(testBeer).setNumber(5).setBeerOrder(testOrder);
-        testOrder.setItems(Arrays.asList(new BeerOrderItem[]{testItem}));
+        testItem = new BeerOrderItem().setBeer(testBeer).setNumber(5);
+        testOrder = new BeerOrder().setName("Klaas").setItems(Arrays.asList(new BeerOrderItem[]{testItem}));
     }
 
     @Test
     void getBeerOrderById() {
-        BeerOrder beerOrder = beerOrderRepository.getBeerOrderById(1);
-        assertEquals("JoeBiden",beerOrder.getName());
+        BeerOrder order = beerOrderRepository.getBeerOrderById(1);
+        assertEquals("JoeBiden",order.getName());
+        assertEquals("[5 x TestBeer]", order.getItems().toString());
     }
 
     @Test
@@ -48,10 +48,9 @@ public class BeerOrderRepositoryTest {
         assertEquals(2,idTestOrder);
         BeerOrder beerOrder = beerOrderRepository.getBeerOrderById(2);
         assertEquals("Klaas",beerOrder.getName());
-        assertEquals(testItem.toString().trim(),beerOrder.getItems().get(0).toString().trim());
+        assertEquals(testItem.toString(),beerOrder.getItems().get(0).toString());
         assertEquals(testBeer.toString(),beerOrder.getItems().get(0).getBeer().toString());
         assertEquals(5,beerOrder.getItems().get(0).getNumber());
-        assertEquals(testOrder.toString(),beerOrder.getItems().get(0).getBeerOrder().toString());
     }
 
 }

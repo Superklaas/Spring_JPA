@@ -14,7 +14,8 @@ public class BeerOrder {
     private int id;
     @Column(name = "Name")
     private String name;
-    @OneToMany(mappedBy = "beerOrder",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JoinColumn(name = "BeerOrderId")
     private List<BeerOrderItem> items;
 
     public int getId() {

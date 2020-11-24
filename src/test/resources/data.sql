@@ -1,9 +1,3 @@
--- empty existing data in test tables
-TRUNCATE TABLE Brewers;
-TRUNCATE TABLE Categories;
-TRUNCATE TABLE Beers;
-TRUNCATE TABLE BeerOrders;
-TRUNCATE TABLE BeerOrderItems;
 
 -- fill it with test data
 insert into Brewers values (1, 'TestBrewer', 'TestStreet', 1000, 'TestCity', 10000);

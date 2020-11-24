@@ -10,14 +10,11 @@ public class BeerOrderItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id")
     private int id;
-    @Column(name = "Number")
-    private int number;
     @ManyToOne
     @JoinColumn(name = "BeerId")
     private Beer beer;
-    @ManyToOne
-    @JoinColumn(name = "BeerOrderId")
-    private BeerOrder beerOrder;
+    @Column(name = "Number")
+    private int number;
 
     public int getId() {
         return id;
@@ -38,15 +35,6 @@ public class BeerOrderItem {
 
     public BeerOrderItem setBeer(Beer beer) {
         this.beer = beer;
-        return this;
-    }
-
-    public BeerOrder getBeerOrder() {
-        return beerOrder;
-    }
-
-    public BeerOrderItem setBeerOrder(BeerOrder beerOrder) {
-        this.beerOrder = beerOrder;
         return this;
     }
 

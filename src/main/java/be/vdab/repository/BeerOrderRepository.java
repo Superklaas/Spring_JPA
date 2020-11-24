@@ -2,41 +2,30 @@ package be.vdab.repository;
 
 import be.vdab.domain.BeerOrder;
 import be.vdab.domain.BeerOrderItem;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.PersistenceUnit;
+import javax.persistence.*;
 
 @Repository
 public class BeerOrderRepository {
 
-    private EntityManagerFactory emf;
+    private EntityManager em;
 
-    @PersistenceUnit
-    public void setEmf(EntityManagerFactory emf) {
-        this.emf = emf;
+    @PersistenceContext
+    public void setEntityManager(EntityManager em) {
+        this.em = em;
     }
 
+    @Transactional
     public int saveOrder(BeerOrder order) {
-        EntityManager em = emf.createEntityManager();
-        EntityTransaction tx = em.getTransaction();
-        tx.begin();
         em.persist(order);
-//        for (BeerOrderItem item : order.getItems()) {
-//            em.persist(item);
-//        }
-        tx.commit();
-        em.close();
         return order.getId();
     }
 
     public BeerOrder getBeerOrderById(int id) {
-        EntityManager em = emf.createEntityManager();
-        BeerOrder order = em.find(BeerOrder.class,id);
-        em.close();
-        return order;
+        return em.find(BeerOrder.class, id);
     }
 
 }
