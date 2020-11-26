@@ -1,10 +1,10 @@
 package be.vdab;
 
 import be.vdab.domain.Beer;
+import be.vdab.repository.BeerRepository;
 import be.vdab.domain.BeerOrder;
 import be.vdab.domain.BeerOrderItem;
 import be.vdab.repository.BeerOrderRepository;
-import be.vdab.repository.BeerRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;

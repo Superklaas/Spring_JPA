@@ -2,7 +2,6 @@ package be.vdab.repository;
 
 import be.vdab.domain.Beer;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;

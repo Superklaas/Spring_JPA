@@ -15,11 +15,5 @@
       <jdbc-driver>org.h2.Driver</jdbc-driver>
       <jdbc-url>jdbc:h2:file:$PROJECT_DIR$/testdb</jdbc-url>
     </data-source>
-    <data-source source="LOCAL" name="Hibernate" uuid="e8f94954-c8df-43fa-becb-e77902ebb948">
-      <driver-ref>mysql.8</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/hibernate</jdbc-url>
-    </data-source>
   </component>
 </project>
