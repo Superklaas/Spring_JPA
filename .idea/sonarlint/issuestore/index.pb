@@ -9,3 +9,7 @@ Y
 .src/main/java/be/vdab/service/BeerService.java,d/9/d90de6f333fe11ed959cd00c7e1b060959b09d78
 i
 9src/main/java/be/vdab/repository/BeerOrderRepository.java,7/b/7b9810fdc84d18a3bda3aa8b5706659e121c606a
+[
++src/main/java/be/vdab/domain/BeerOrder.java,7/f/7f93c3adb7324f3f093b26d15ec2b0f8b821516c
+X
+(src/main/java/be/vdab/DataAccessApp.java,c/4/c491a76a4d017a40eb438ad8b3ea34107db95feb
